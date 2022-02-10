@@ -23,13 +23,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mag-fh-JCL">
-                                <rect key="frame" x="53.5" y="186" width="268" height="268"/>
+                                <rect key="frame" x="27" y="186" width="321" height="268"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="QGm-8X-f40">
-                                        <rect key="frame" x="0.0" y="0.0" width="268" height="130"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="321" height="130"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atF-S2-A2Q">
-                                                <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="156.5" height="130"/>
                                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="130" id="Siw-fX-dfZ"/>
@@ -43,18 +43,19 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
+                                                    <action selector="pulpFictionButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZiS-IS-9T4"/>
                                                     <segue destination="dfh-eO-Qy9" kind="show" identifier="pulpFictionSegue" id="fJC-eq-i7V"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IB7-OG-ihc">
-                                                <rect key="frame" x="138" y="0.0" width="130" height="130"/>
+                                                <rect key="frame" x="164.5" y="0.0" width="156.5" height="130"/>
                                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="35x-1Z-wF9"/>
                                                     <constraint firstAttribute="height" constant="130" id="eet-86-3Sg"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Jackie Brown"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <integer key="value" value="10"/>
@@ -64,17 +65,17 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="osQ-aW-qXP">
-                                        <rect key="frame" x="0.0" y="138" width="268" height="130"/>
+                                        <rect key="frame" x="0.0" y="138" width="321" height="130"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ay5-b8-riQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="156.5" height="130"/>
                                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="130" id="W9U-3B-vcD"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="nnH-3w-2tI"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Kill Bill"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <integer key="value" value="10"/>
@@ -82,14 +83,14 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uI-DJ-8uL">
-                                                <rect key="frame" x="138" y="0.0" width="130" height="130"/>
+                                                <rect key="frame" x="164.5" y="0.0" width="156.5" height="130"/>
                                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="9mK-l8-654"/>
                                                     <constraint firstAttribute="height" constant="130" id="EVc-dJ-Kjp"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Inglourious Basterds"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <integer key="value" value="10"/>
@@ -116,10 +117,10 @@
             </objects>
             <point key="canvasLocation" x="959.20000000000005" y="65.217391304347828"/>
         </scene>
-        <!--View Controller-->
+        <!--Film Details View Controller-->
         <scene sceneID="NPL-kA-7Po">
             <objects>
-                <viewController id="dfh-eO-Qy9" sceneMemberID="viewController">
+                <viewController id="dfh-eO-Qy9" customClass="FilmDetailsViewController" customModule="api_practice_project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eDN-bq-yXp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -154,18 +155,31 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="reM-YK-IiC">
+                                <rect key="frame" x="169" y="217.5" width="37" height="37"/>
+                                <color key="color" red="0.03744853287935257" green="0.31145501136779785" blue="0.9517090916633606" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XSz-sp-uVC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="O15-5h-c6b" firstAttribute="leading" secondItem="XSz-sp-uVC" secondAttribute="leading" constant="16" id="3qx-Al-Ffg"/>
                             <constraint firstItem="O15-5h-c6b" firstAttribute="top" secondItem="06k-1X-WzO" secondAttribute="bottom" constant="20" id="4cj-bD-D4b"/>
+                            <constraint firstItem="reM-YK-IiC" firstAttribute="centerY" secondItem="06k-1X-WzO" secondAttribute="centerY" id="NYn-FO-09n"/>
                             <constraint firstItem="06k-1X-WzO" firstAttribute="centerX" secondItem="eDN-bq-yXp" secondAttribute="centerX" id="ODS-uQ-Qfh"/>
                             <constraint firstItem="XSz-sp-uVC" firstAttribute="trailing" secondItem="O15-5h-c6b" secondAttribute="trailing" constant="16" id="OZf-Ap-CFd"/>
+                            <constraint firstItem="reM-YK-IiC" firstAttribute="centerX" secondItem="06k-1X-WzO" secondAttribute="centerX" id="Tbs-mR-nVT"/>
                             <constraint firstItem="06k-1X-WzO" firstAttribute="top" secondItem="XSz-sp-uVC" secondAttribute="top" constant="20" id="Xzy-s8-7D9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="d0s-Nl-eEO"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="reM-YK-IiC" id="ic1-WG-mCj"/>
+                        <outlet property="actorsLabel" destination="dgs-PV-ws4" id="KN7-4S-6Mj"/>
+                        <outlet property="descriptionLabel" destination="Ikk-b8-JbL" id="vAG-bc-inw"/>
+                        <outlet property="filmImageView" destination="06k-1X-WzO" id="YAb-Ob-uK1"/>
+                        <outlet property="yearLabel" destination="gmc-GN-wFa" id="Z5K-mD-fi2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yqf-ZF-hyE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
