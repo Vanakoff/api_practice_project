@@ -9,7 +9,7 @@ import UIKit
 
 class FilmDetailsViewController: UIViewController {
     
-    var films: [TarantinoFilm] = []
+    var films: [Film] = []
     
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var filmImageView: UIImageView!
@@ -22,16 +22,20 @@ class FilmDetailsViewController: UIViewController {
 
         activityIndicator.startAnimating()
         activityIndicator.hidesWhenStopped = true
+        
+        fetchImage()
+        fetchData()
     }
     
     private func fetchImage() {
         guard let url = URL(string: Link.pulpFictionImage.rawValue) else { return }
         
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, let response = response else {
                 print(error?.localizedDescription ?? "No error description")
                 return
             }
+            print(response)
             guard let image = UIImage(data: data) else { return }
             
             DispatchQueue.main.async {
@@ -41,45 +45,27 @@ class FilmDetailsViewController: UIViewController {
         } .resume()
     }
     
-//    private func fetchImage() {
-//        NetworkManager.shaerd.fetchImage(from: Link.pulpFictionImage.rawValue) { result in
-//            switch result {
-//            case .success(let data):
-//                self.filmImageView.image = UIImage(data: data)
-//                self.activityIndicator.stopAnimating()
-//            case .failure(let error):
-//                print(error.localizedDescription)
-//            }
-//        }
-//    }
-
-    /*
-     
-     private func fetchImage() {
-         NetworkManager.shared.fetchImage(from: Link.imageURL.rawValue) { result in
-             switch result {
-             case .success(let data):
-                 self.imageView.image = UIImage(data: data)
-                 self.activityIndicator.stopAnimating()
-             case .failure(let error):
-                 print(error.localizedDescription)
-             }
-         }
-     }
-     
-    func fetchCoursesV2() {
-        NetworkManager.shared.fetch(dataType: [CourseV2].self,
-                                    from: Link.exampleFive.rawValue,
-                                    convertFromSnakeCase: false) { result in
-            switch result {
-            case .success(let courses):
-                self.coursesV2 = courses
-                self.tableView.reloadData()
-            case .failure(let error):
-                print(error)
+    private func fetchData() {
+        guard let url = URL(string: Link.pulpFiction.rawValue) else { return }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, let response = response else {
+                print(error?.localizedDescription ?? "no error description")
+                return
             }
-        }
+            print(response)
+            do {
+                let film = try JSONDecoder().decode(Film.self, from: data)
+                print(film)
+                DispatchQueue.main.async {
+                    self.descriptionLabel.text = film.Plot
+                }
+            } catch let error {
+                print(error.localizedDescription)
+            }
+        } .resume()
     }
-     */
+    
+
 
 }

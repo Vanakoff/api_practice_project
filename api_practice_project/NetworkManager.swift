@@ -10,6 +10,7 @@ import Foundation
 enum Link: String {
     case pulpFiction = "https://www.omdbapi.com/?t=Pulp+Fiction&apikey=dfe96dbe"
     case pulpFictionImage = "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg"
+    case pulpFictionImageTwo = "https://image.posterlounge.pl/images/l/1903247.jpg"
     case jackieBrown = "https://www.omdbapi.com/?t=jackie+brown&apikey=dfe96dbe"
     case killBill = "https://www.omdbapi.com/?t=kill+bill&apikey=dfe96dbe"
     case inglouriousBasterds = "https://www.omdbapi.com/?t=inglourious+basterds&apikey=dfe96dbe"
@@ -22,9 +23,10 @@ enum NetworkError: Error {
 }
 
 class NetworkManager {
-    static let shaerd = NetworkManager()
+    static let shared = NetworkManager()
     
     private init() {}
+    
     /*
     func fetchImage(from url: String?, completion: @escaping(Result<Data, NetworkError>) -> Void) {
         guard let url = URL(string: url ?? "") else {
@@ -68,7 +70,7 @@ class NetworkManager {
             }
         }.resume()
     }
-     */
+     
     
     func fetchImage(from url: String?, completion: @escaping(Result<Data, NetworkError>) -> Void) {
         guard let url = URL(string: url ?? "") else {
@@ -85,6 +87,7 @@ class NetworkManager {
             }
         }
     }
+     */
     
     func fetch<T: Decodable>(dataType: T.Type, from url: String, completion: @escaping(Result<T, NetworkError>) -> Void) {
         guard let url = URL(string: url) else {

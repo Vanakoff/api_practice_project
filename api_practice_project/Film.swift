@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TarantinoFilm: Decodable {
+struct Film: Decodable {
     
     let Title: String
     let Poster: String
