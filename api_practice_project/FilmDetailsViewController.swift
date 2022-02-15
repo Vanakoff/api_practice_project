@@ -15,7 +15,7 @@ class FilmDetailsViewController: UIViewController {
     @IBOutlet var filmImageView: UIImageView!
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var actorsLabel: UILabel!
-    @IBOutlet var yearLabel: UILabel!
+    @IBOutlet var awardsLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +58,10 @@ class FilmDetailsViewController: UIViewController {
                 let film = try JSONDecoder().decode(Film.self, from: data)
                 print(film)
                 DispatchQueue.main.async {
+                    self.title = film.Title
                     self.descriptionLabel.text = film.Plot
+                    self.actorsLabel.text = "Actors: \(film.Actors)"
+                    self.awardsLabel.text = "Awards: \(film.Awards)"
                 }
             } catch let error {
                 print(error.localizedDescription)
